@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference
+            for="Creativestyle\ContentConstructor\Repository\ComponentsConfigurationRepository"
+            type="Creativestyle\ContentConstructorAdminExtension\Repository\ComponentsConfigurationRepository" />
+    <preference
+            for="Creativestyle\ContentConstructor\Factory\AdminComponentFactory"
+            type="Creativestyle\ContentConstructorAdminExtension\Service\AdminComponentFactory" />
+    <preference
+            for="Creativestyle\ContentConstructor\Components\StaticBlock\DataProvider"
+            type="Creativestyle\ContentConstructorAdminExtension\DataProviders\StaticBlockDataProvider" />
+
+    <preference
+            for="Creativestyle\ContentConstructor\Components\Paragraph\WysiwygConfigDataProvider"
+            type="Creativestyle\ContentConstructorAdminExtension\DataProviders\WysiwygConfigDataProvider" />
+
+    <preference
+            for="Creativestyle\ContentConstructor\Components\ProductCarousel\CategoryPickerProvider"
+            type="Creativestyle\ContentConstructorAdminExtension\UiComponents\CategoryPickerProvider" />
+
+    <preference
+            for="Creativestyle\ContentConstructor\Components\CmsTeaser\CmsTeaserAdminDataProvider"
+            type="Creativestyle\ContentConstructorAdminExtension\DataProviders\CmsTeaserAdminDataProvider" />
+
+    <preference
+            for="Creativestyle\ContentConstructor\View\AdminTemplateLocator"
+            type="Creativestyle\ContentConstructorAdminExtension\Template\Locator" />
+
+    <preference for="\Magento\Widget\Block\Adminhtml\Widget\Form"
+                type="\Creativestyle\ContentConstructorAdminExtension\Block\Adminhtml\Widget\Form"/>
+
+
+    <type name="Magento\Catalog\Controller\Adminhtml\Product\Initialization\Helper">
+        <plugin name="add_cc_layout_xml_on_product_save"
+                type="Creativestyle\ContentConstructorAdminExtension\Plugin\ProductEdit"
+                sortOrder="1" />
+    </type>
+
+    <type name="Creativestyle\ContentConstructorAdminExtension\Block\Adminhtml\ContentConstructor\AbstractConstructor">
+        <plugin name="remap_sorting_fields"
+                type="Creativestyle\ContentConstructorAdminExtension\Plugin\RemapSortingFields"
+                sortOrder="1" />
+    </type>
+</config>
